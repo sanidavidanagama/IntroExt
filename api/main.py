@@ -7,3 +7,12 @@ app = FastAPI(
     description="API for predicting personality type (Introvert or Extrovert) based on user input features.",
     version="1.0.0"
 )
+
+class PersonalityInput(BaseModel):
+    Time_spent_alone: float
+    Stage_feat: str
+    Social_event_attendance: float
+    Going_outside: float
+    Drained_after_socializing: str
+    Friends_circle_size: float
+    Post_frequency: float
