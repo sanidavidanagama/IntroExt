@@ -5,7 +5,7 @@ Predict whether a person is an introvert or an extrovert from a small set of beh
 ## Contents
 
 - [Overview](#overview)
-- [Why Random Forest Was Selected](#why-random-forest-was-selected)
+- [Live API](#live-api)
 - [Prerequisites](#prerequisites)
 - [Setup](#setup)
 - [Run The API](#run-the-api)
@@ -30,9 +30,15 @@ Two machine learning models were trained: a Random Forest classifier and an XGBo
 
 The backend is built with FastAPI and serves predictions from the deployed Random Forest model.
 
-## Why Random Forest Was Selected
-
 Random Forest was chosen as the final model because it generalized better than the alternative while remaining easy to interpret. Its test metrics were stronger, the feature contributions were distributed across the full input set, and the train/test performance gap stayed small enough to suggest limited overfitting.
+
+## Live API
+
+Base URL: `https://introext-production.up.railway.app`
+
+- Swagger UI: `https://introext-production.up.railway.app/docs`
+- ReDoc: `https://introext-production.up.railway.app/redoc`
+
 
 ## Prerequisites
 
@@ -41,23 +47,30 @@ Random Forest was chosen as the final model because it generalized better than t
 
 ## Setup
 
+
+Clone the repository
 ```bash
-# Clone the repository
 git clone https://github.com/sanidavidanagama/IntroExt.git
 cd IntroExt
+```
 
-# Create a virtual environment
+Create a virtual environment
+```bash
 uv venv
+```
 
-# Activate it
+Activate virtual env
+```bash
 # Windows PowerShell:
 .venv\Scripts\Activate.ps1
+```
 
-# Install dependencies
+Install dependencies
+```bash
 uv sync
 ```
 
-## Run The API
+## Run The API Locally
 
 ```bash
 uv run uvicorn api.main:app --reload
@@ -122,7 +135,7 @@ Response:
 
 - Model: Scikit-learn Random Forest
 - API: FastAPI
-- Deployment: Render
+- Deployment: Railway
 - Dependency management: uv
 
 ## Project Artifacts
