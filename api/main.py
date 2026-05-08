@@ -9,8 +9,8 @@ app = FastAPI(
 )
 
 class PersonalityInput(BaseModel):
-    Time_spent_alone: float
-    Stage_feat: str
+    Time_spent_Alone: float
+    Stage_fear: str
     Social_event_attendance: float
     Going_outside: float
     Drained_after_socializing: str
@@ -24,5 +24,6 @@ def root():
 
 @app.post("/predict")
 def predict_personality(data: PersonalityInput):
+    print(data.model_dump())
     result = predict(data.model_dump())
-    return result
+    return result   
