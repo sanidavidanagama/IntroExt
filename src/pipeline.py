@@ -8,8 +8,17 @@ def _load_model():
 def preprocess(data):
     """Preprocess the input DataFrame for prediction."""
     df = pd.DataFrame([data])
-    df["Stage_fear"] = df["Stage_fear"].str.capitalize().map({"Yes": 1, "No": 0})
-    df["Drained_after_socializing"] = df["Drained_after_socializing"].str.capitalize().map({"Yes": 1, "No": 0})
+    df["stage_fear"] = df["stage_fear"].str.capitalize().map({"Yes": 1, "No": 0})
+    df["drained_after_socializing"] = df["drained_after_socializing"].str.capitalize().map({"Yes": 1, "No": 0})
+    df = df.rename(columns={
+        "time_spent_alone": "Time_spent_Alone",
+        "stage_fear": "Stage_fear",
+        "social_event_attendance": "Social_event_attendance",
+        "going_outside": "Going_outside",
+        "drained_after_socializing": "Drained_after_socializing",
+        "friends_circle_size": "Friends_circle_size",
+        "post_frequency": "Post_frequency"
+    })
     return df
 
 def predict(data):
