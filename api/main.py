@@ -16,3 +16,13 @@ class PersonalityInput(BaseModel):
     Drained_after_socializing: str
     Friends_circle_size: float
     Post_frequency: float
+
+
+@app.get("/")
+def root():
+    return {"message": "Welcome to the IntroExt API! Use the /predict endpoint to get predictions."}
+
+@app.post("/predict")
+def predict_personality(data: PersonalityInput):
+    result = predict(data.model_dump())
+    return result
