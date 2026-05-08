@@ -7,10 +7,9 @@ def _load_model():
 
 def preprocess(data):
     """Preprocess the input DataFrame for prediction."""
-    # Example preprocessing steps (these should match the training preprocessing)
     df = pd.DataFrame([data])
-    df["Stage_fear"] = df["Stage_fear"].map({"Yes": 1, "No": 0})
-    df["Drained_after_socializing"] = df["Drained_after_socializing"].map({"Yes": 1, "No": 0})
+    df["Stage_fear"] = df["Stage_fear"].str.capitalize().map({"Yes": 1, "No": 0})
+    df["Drained_after_socializing"] = df["Drained_after_socializing"].str.capitalize().map({"Yes": 1, "No": 0})
     return df
 
 def predict(data):
