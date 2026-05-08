@@ -11,7 +11,7 @@ app = FastAPI(
 
 @app.get("/")
 def root():
-    return {"message": "Welcome to the IntroExt API! Use the /predict endpoint to get predictions."}
+    return {"message": "IntroExt API is running"}
 
 @app.post("/predict")
 def predict_personality(data: PersonalityInput):
